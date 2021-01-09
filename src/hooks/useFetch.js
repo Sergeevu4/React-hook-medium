@@ -2,23 +2,23 @@ import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { useLocalStorage } from './useLocalStorage'
 
-// const BASE_URL = 'https://conduit.productionready.io/api'
+const BASE_URL = 'https://conduit.productionready.io/api'
 // ! Пока не работает сервер
-const BASE_URL = 'http://localhost:3000/api'
+// const BASE_URL = 'http://localhost:3000/api'
 
 // * Собственный HOOK - для отправка axios запроса
 export const useFetch = (url) => {
   const [response, setResponse] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  // # Необходим для передачи настроек в axios при исп. хука, снаружи
-  // пример { method: 'post', data: {} }
+  // # Необходим для передачи настроек, опций в axios при исп. хука, снаружи
+  // пример { method: 'post', data: { отправка чего-либо } }
   const [options, setOptions] = useState({})
 
   // # Собственный HOOK - для чтения и записи в localStorage
   const [token] = useLocalStorage('token') // key -> token
 
-  // При каждом ререндаре каждая функция новая,
+  // При каждом ререндаре каждая функция создания компонента всегда новая,
   // если исп. doFetch за компоненте
   // и указать ее в зависимостях в useEffect
   // произодет рекурсия - переполнение стека
@@ -63,5 +63,6 @@ export const useFetch = (url) => {
       })
   }, [url, isLoading, options, token])
 
+  // До того как будет вызвана функция doFetch, запрос не будет отправлен
   return [{ response, isLoading, error }, doFetch]
 }

@@ -50,7 +50,7 @@ function Authentication({ match }) {
 
     // # Отправка данных в зависимости от страницы
     const user = isLogin ? { email, password } : { username, email, password }
-    console.log(user)
+    console.log('Authentication name', user)
 
     // # передаваемые options для axios
     doFetch({

@@ -12,7 +12,7 @@ import CurrentUserChecker from 'components/CurrentUserChecker'
 
   Файловая Структура и Архитектура проекта:
 
-  /pages -> Страница проекта
+  /pages -> Страницы проекта
     article/ -> страница с отдельной статьей
 
     globalFeed/ -> Главная страница

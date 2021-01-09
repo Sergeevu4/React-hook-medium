@@ -12,6 +12,7 @@ import ErrorMessage from 'components/ErrorMessage'
 function GlobalFeed({ location, match }) {
   const { offset, currentPage } = getPaginator(location.search)
   // Получение строки: `/articles?limit=10&offset=0` - первая стр.
+  // Аналог new URLSearchParams({ limit, offset }).toString()
   const stringifiedParams = stringify({
     limit,
     offset,
