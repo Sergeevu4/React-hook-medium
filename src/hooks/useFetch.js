@@ -11,7 +11,7 @@ export const useFetch = (url) => {
   const [response, setResponse] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  // # Необходим для передачи настроек, опций в axios при исп. хука, снаружи
+  // # Необходим для передачи настроек, опций  в axios при исп. хука, снаружи
   // пример { method: 'post', data: { отправка чего-либо } }
   const [options, setOptions] = useState({})
 

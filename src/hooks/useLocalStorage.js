@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 // * Собственный HOOK - для чтения и записи в localStorage
 // Второй не обязательный аргумент, initialValue - значение по умолчанию
 export const useLocalStorage = (key, initialValue = '') => {
-  // # Исп. ленивая инициализация в useState
+  // # Исп. ленивая инициализация в useState,
+  // # использовать когда для инициализации необходима сложная калькуляция для определения первоначального state
   // value - то значение которого храниться по переданному key в localStorage
   const [value, setValue] = useState(() => {
     // Если необходимого ключа в localStorage, не оказалось

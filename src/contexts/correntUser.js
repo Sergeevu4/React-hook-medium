@@ -7,7 +7,7 @@ export const CurrentUserContext = createContext([{}, () => {}])
 // Выступает в роли хранения и передачи данных среди компонентов, что-то типо Redux
 export const CurrentUserProvider = ({ children }) => {
   const [state, setState] = useState({
-    // Загружаем Пользователя
+    // Загружаем Пользователя (Никак не связан с isLoading из useFetch)
     isLoading: false,
     // Залогинен ли Пользователь: null, true, false
     isLoggenIn: null,

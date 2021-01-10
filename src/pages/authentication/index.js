@@ -72,9 +72,9 @@ function Authentication({ match }) {
       return
     }
 
-    console.log('token', response.user.token)
+    console.log('token', response)
 
-    // # После регистрации
+    // # После регистрации записываю Токен
     setToken(response.user.token)
 
     // # Обновляю хранилище с данными
@@ -92,6 +92,7 @@ function Authentication({ match }) {
   // # Если произошел успешный вход
   if (isSuccessFillSubmit) {
     // переход на главную страницу
+    // На которой в TopBar отображен новый список с ссылками
     return <Redirect to='/' />
   }
 
